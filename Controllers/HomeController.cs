@@ -42,7 +42,7 @@ namespace SandboxBackend.Controllers
             {
                 return Json(new { view = await ServiceFunctions.RenderRazorViewToString(this, "Dashboard") });
             }
-            return Json(new { view = await ServiceFunctions.RenderRazorViewToString(this, "Login") });
+            return Json(new { view = await ServiceFunctions.RenderRazorViewToString(this, "Landing") });
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -70,7 +70,8 @@ namespace SandboxBackend.Controllers
 
             if (result.Succeeded)
             {
-                return Json(new { success = true });
+                await signInManager.SignInAsync(user, true);
+                return RedirectToAction("LoadContent");
 
             }
             else
@@ -82,11 +83,10 @@ namespace SandboxBackend.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Login(string Email, string Password,
-            bool rememberMe)
+        public async Task<ActionResult> Login(string Email, string Password)
         {
             IdentityUser user = null;
-            
+
             Email ??= "";
             Password ??= "";
             user = await userManager.FindByNameAsync(Email);
@@ -97,7 +97,7 @@ namespace SandboxBackend.Controllers
             
             if (user != null)
             {
-                await signInManager.SignInAsync(user, rememberMe);
+                await signInManager.SignInAsync(user, true);
                 return RedirectToAction("LoadContent");
             }
             else
@@ -117,6 +117,21 @@ namespace SandboxBackend.Controllers
             await signInManager.SignOutAsync();
 
             return Json(new { view = await ServiceFunctions.RenderRazorViewToString(this, "Login") });
+        }
+
+        public async Task<IActionResult> GetLanding()
+        {
+            return Json(new { view = await ServiceFunctions.RenderRazorViewToString(this, "Landing") });
+        }
+
+        public async Task<IActionResult> GetLogin()
+        {
+            return Json(new { view = await ServiceFunctions.RenderRazorViewToString(this, "Login") });
+        }
+
+        public async Task<IActionResult> GetRegister()
+        {
+            return Json(new { view = await ServiceFunctions.RenderRazorViewToString(this, "Register") });
         }
     }
 }

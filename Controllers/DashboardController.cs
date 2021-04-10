@@ -41,7 +41,7 @@ namespace SandboxBackend.Controllers
         [Authorize]
         public IActionResult GetProfile()
         {
-            return Json(new { view = "Profile" });
+            return Json(new { view = "Profile <button onclick='logout()'>Logout</button>" });
         }
     }
 }

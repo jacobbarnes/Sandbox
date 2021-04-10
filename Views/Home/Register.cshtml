@@ -2,56 +2,23 @@
     /**/
     ViewBag.Title = "Register";
 }
-@*TODO: @using Microsoft.Owin.Security*@
 
 <div class="login-form">
-    
+    <i class="fas fa-arrow-left clickable" onclick="getLanding()"></i>
     <h1>Sign up</h1>
     <hr />
-    @using (Html.BeginForm("ExternalLogin", "Account", FormMethod.Post, new
-    {
-        style = "font-size: 16px;"
-    }))
-    {
-        <input type="hidden" id="clientTimeZone" name="clientTimeZone" value="" />//value populated by javascript on submit
-        @Html.AntiForgeryToken();
-        @*TODO: Google Login stuff     var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
-        foreach (AuthenticationDescription p in loginProviders)
-        {
-            <button type="submit" onclick="getClientTimeZone()" style="font-size: 16px; margin: 0; width: 100%; display: flex; align-items: center; justify-content: flex-start;" class="btn btn-default" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">
-                <img src="~/images/icons/google-icon.png" style="width: 20px;" alt="google icon" />
-                <span style="margin: 0 auto;">Continue with @p.AuthenticationType</span>
-            </button>
-        }*@
-        <div class="login-hr">
-            <hr />OR<hr />
-        </div>
-    }
-    <form id="registerForm">
+
+    <form id="registerForm" onsubmit="return false;">
         @Html.AntiForgeryToken()
-        <div class="form-group">
-            <h4><label for="inputEmail">Email</label></h4>
-            @Html.TextBox("Email", null, new { @class = "form-control", type = "email" })
-        </div>
-        <div class="form-group">
-            <h4>
-                <label for="inputPassword">Password</label> <i class="far fa-question-circle tooltip">
-                    <span class="tooltipTextTop">
-                        Password must: <br />
-                        - Be at least 8 characters<br />
-                        - Have at least one upper case and one lower case letter<br />
-                        - Have at least one digit<br />
-                    </span>
-                </i>
-            </h4>
-            @Html.Password("Password", null, new { @class = "form-control" })
-        </div>
+        @Html.TextBox("Email", null, new { @class = "form-control", type = "email", value = "jacobbarnes167@gmail.com", placeholder = "Email" })
+        @Html.Password("Password", null, new { @class = "form-control", value = "Schedulis1!", placeholder = "Password" })
         <p style="color: red;" id="errorMessage">@Html.Raw(ViewBag.error)</p>
-        <p>By signing up, you agree to our 
-            <a class="btn-link" target="_blank" href="/Account/Legal/TAC">terms</a>, 
-            <a class="btn-link" target="_blank" href="/Account/Legal/Privacy">privacy policy</a>, and 
-            <a class="btn-link" target="_blank" href="/Account/Legal/Cookie">cookie policy</a>.</p>
-        <button id="submitButton" onclick="register();" class="btn">Sign up</button>
-        <button type="button" onclick="login(true)" class="btn-link">Try a demo first</button>
+        <button id="submitButton" onclick="register();" class="submit">Sign up</button>
+        <p>
+            By signing up, you agree to our
+            <a class="button-link" target="_blank" href="#">terms</a>,
+            <a class="button-link" target="_blank" href="#">privacy policy</a>, and
+            <a class="button-link" target="_blank" href="#">cookie policy</a>.
+        </p>
     </form>
 </div>
