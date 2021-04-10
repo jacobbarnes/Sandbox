@@ -1,0 +1,106 @@
+body {
+    font-family: Arial;
+    padding:0;
+    margin:0;
+}
+
+button {
+    background: none !important;
+    border: none;
+    padding: 10px;
+    /*optional*/
+    font-family: arial, sans-serif;
+    cursor: pointer;
+}
+
+#navbar {
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    justify-content: space-evenly;
+    box-shadow: 0 0px 12px 4px rgb(0 0 0 / 10%);
+}
+
+#navbar i {
+    font-size: 1.2rem;
+    cursor:pointer;
+}
+
+.orangeButton {
+    background: linear-gradient(200deg, #E8931E, #FF4D00);
+    border-radius: 40px;
+    padding: 10px 30px;
+    color: white;
+}
+
+.flexVert {
+    display: flex;
+    flex-direction: column;
+}
+
+.flexHorizontal {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.topPicks {
+    height: 400px;
+    overflow-x: auto;
+    margin-top: 30px;
+    display: flex;
+    align-items: flex-start;
+    padding: 20px 20px;
+}
+
+    .topPicks .topPick:last-of-type:after {
+        content: "";
+        display: block;
+        height: 100%;
+        width: 30px;
+        transform:translate(300px, -100%);
+    }
+
+    .topPicks::-webkit-scrollbar {
+        display: none;
+    }
+
+.topPick {
+    height: 370px;
+    max-width:300px;
+    min-width:300px;
+    margin:0 20px;
+    box-shadow: 0 0 15px 12px rgba(0,0,0,.03)
+}
+
+.topPick img {
+    min-width: 100%;
+    max-width: 100%;
+    max-height:300px;
+}
+
+.topPick .role {
+    font-size:1.5rem;
+    font-weight:bold;
+}
+
+.mainPaddingLeft {
+    padding-left: 20px
+}
+
+#mainContent {
+    max-height: calc(100vh - 50px);
+    overflow-y: scroll;
+}
+
+h1 {
+    margin-top:0;
+    padding-top:50px;
+    font-family: "Comfortaa", cursive;
+}
+

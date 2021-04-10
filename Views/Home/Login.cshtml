@@ -1,0 +1,33 @@
+﻿
+<div class="login-form">
+    <h1>Log in</h1>
+    <hr />
+    <form id="loginForm" onsubmit="return false;">
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <h4><label for="inputEmail">Email</label></h4>
+            @Html.TextBox("Email", null, new { @class = "form-control", type = "email", value="jacobbarnes167@gmail.com"})
+        </div>
+        <div class="form-group">
+            <h4><label for="inputPassword">Password</label></h4>
+
+            @Html.Password("Password", null, new { @class = "form-control", value="Schedulis1!" })
+        </div>
+        <div class="form-group" style="display: flex; align-items: center;">
+            @Html.CheckBox("rememberMe", false, new { style = "margin: 0;" })
+            <h4 style="font-size: 12px; margin: 0 auto 0 5px;"><label style="margin: 0;" for="rememberMe">Remember me?</label></h4>
+            <button type="button" onclick="getForm('ForgotPassword')" class="btn-link">Forgot password?</button>
+
+        </div>
+        <p style="color: red;" id="errorMessage">@ViewBag.error</p>
+        @if (ViewBag.emailConfirmed != null && !ViewBag.emailConfirmed)
+        {
+            <div style="position: relative; bottom: 8px;">
+                <button type="button" id="resendLink" class="btn-link" style="margin-right:10px;" onclick="resendConfirmation('@ViewBag.email');">Resend confirmation link </button>
+            </div>
+        }
+
+        <button type="submit" onclick="login();" id="submitButton" class="btn">Log in</button><br />
+        <button type="button" onclick="getForm('Register')" class="btn-link">Create an account</button>
+    </form>
+</div>

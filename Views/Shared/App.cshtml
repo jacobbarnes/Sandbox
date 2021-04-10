@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>JobJay</title>
+    <link href="~/css/styles.css" rel="stylesheet" type="text/css" />
+
+    <link rel="apple-touch-startup-image" href=@Url.ContentVersioned("~/images/icon.png")>
+    <link rel="apple-touch-icon" sizes="300x300" href=@Url.ContentVersioned("~/images/icon.png") />
+
+    <link rel="icon" type='image/x-icon' href=@Url.ContentVersioned("~/images/icon.png") />
+
+    <meta name="description" content="Sandbox" />
+    <meta property="og:type" content="Website" />
+    @*<meta name="image" property="og:image" content="https://schezzy.com/images/schezzy-thumbnail.png" />*@
+    <meta name="description" property="og:description" content="Sandbox" />
+    <meta name="author" content="Jacob Barnes" />
+    <meta name='apple-mobile-web-app-capable' content='yes' />
+    <meta name='mobile-web-app-capable' content='yes' />
+    <meta name="mobile-web-app-title" content="Sandbox" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+    <link rel="manifest" href="~/manifest.json">
+    <link href=@Url.ContentVersioned("~/css/fontawesome.min.css") rel="stylesheet" type="text/css" />
+    <link href=@Url.ContentVersioned("~/css/styles.css") rel="stylesheet" type="text/css" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src=@Url.ContentVersioned("~/js/sandbox.js")></script>
+    <script>
+
+
+        getApp();
+    </script>
+</body>
+</html>
