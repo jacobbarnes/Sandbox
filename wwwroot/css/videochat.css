@@ -1,0 +1,14 @@
+﻿.chats{
+    width:100%;
+}
+
+.chat{
+    width:100%;
+    height:80px;
+    cursor: pointer;
+}
+
+.mainVideo {
+    max-width:100%;
+    position: fixed;
+}

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Sandbox.Services;
 using SandboxBackend.DAL;
 using System;
 using System.Collections.Generic;
@@ -32,9 +33,9 @@ namespace SandboxBackend.Controllers
 
         [HttpGet]
         [Authorize]
-        public IActionResult GetChat()
+        public async Task<IActionResult> GetChat()
         {
-            return Json(new { view="Chat" });
+            return Json(new { view = await ServiceFunctions.RenderRazorViewToString(this, "Chat") });
         }
 
         [HttpGet]

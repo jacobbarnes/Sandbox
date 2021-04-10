@@ -38,7 +38,7 @@ button-plain {
     color: white;
 }
 
-.flexVert {
+.flexVertical {
     display: flex;
     flex-direction: column;
 }
