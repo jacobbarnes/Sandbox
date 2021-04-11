@@ -9,6 +9,93 @@
 }
 
 .mainVideo {
-    max-width:100%;
+    max-width: 100%;
     position: fixed;
+}
+
+.videoList {
+    overflow-x: scroll;
+    flex-direction:row-reverse;
+    position:fixed;
+    bottom:50px;
+    width: 100%;
+    align-items:flex-end;
+}
+
+    .videoList::-webkit-scrollbar {
+        display: none;
+    }
+
+.thumbnail {
+    height:150px;
+    cursor:pointer;
+}
+
+#createVideo {
+    color:white;
+    background-color:gray;
+    min-width:100px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+}
+
+.currentVideo {
+    border-top: solid 4px lightgreen;
+}
+
+.vidContainer {
+    height:667px;
+    width:100%;
+    background-color: #001832;
+}
+
+/* Chat stuff */
+.chatContainer{
+    display: flex;
+    flex-direction:column;
+}
+
+.chatContainer h2 {
+    padding-left:20px;
+    margin-top: 40px;
+    margin-bottom:10px;
+}
+
+.chats {
+    border-top:solid 2px lightgray;
+    width:100%;
+}
+.chat{
+    display:flex;
+    flex-direction:row;
+    justify-content:flex-start;
+    align-items:center;
+    padding-left:30px;
+    height: 100px;
+    border-bottom: solid 2px lightgray;
+}
+
+.chatText {
+    display: flex;
+    flex-direction:column;
+}
+
+.chatName {
+    font-size: 1.5rem;
+    font-weight:bold;
+}
+.chatCompany {
+    font-size:1.2rem;
+}
+
+.clip-circle {
+    clip-path: circle(40px at center);
+}
+
+.chat img {
+    width:80px;
+    height:80px;
+    margin-right:30px;
 }
