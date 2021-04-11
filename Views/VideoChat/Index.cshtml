@@ -1,8 +1,13 @@
-﻿<div class="mainVideo">
-    <video controls playsinline>
-        <source id="videoSource" src="/VideoChat/GetVideo/bed84e13-0639-47ce-abaf-dfa4ff6e4826/1" type="video/mp4">
-    </video>
-</div>
-<div class="videoList">
-
+﻿<div class="vidContainer">
+    <div class="mainVideo">
+        <video id="mainVideo" width="375" height="452" playsinline autoplay>
+            <source id="videoSource" src="/VideoChat/GetVideo/bed84e13-0639-47ce-abaf-dfa4ff6e4826/1" type="video/mp4">
+        </video>
+    </div>
+    <div class="videoList flexHorizontal">
+        <div id="createVideo" class="thumbnail"><i class="far fa-plus-square"></i></div>
+        <img class="thumbnail" id="thumbnail3" onclick="changeMainVideo(3)" src="/VideoChat/GetThumbnail/bed84e13-0639-47ce-abaf-dfa4ff6e4826/3" />
+        <img class="thumbnail" id="thumbnail2" onclick="changeMainVideo(2)" src="/VideoChat/GetThumbnail/bed84e13-0639-47ce-abaf-dfa4ff6e4826/2" />
+        <img class="thumbnail currentVideo" id="thumbnail1" onclick="changeMainVideo(1)" src="/VideoChat/GetThumbnail/bed84e13-0639-47ce-abaf-dfa4ff6e4826/1" />
+    </div>
 </div>

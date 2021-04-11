@@ -40,9 +40,9 @@ namespace SandboxBackend.Controllers
 
         [HttpGet]
         [Authorize]
-        public IActionResult GetProfile()
+        public async Task<IActionResult> GetProfile()
         {
-            return Json(new { view = "Profile <button onclick='logout()'>Logout</button>" });
+            return Json(new { view = await ServiceFunctions.RenderRazorViewToString(this, "Profile") });
         }
     }
 }

@@ -42,7 +42,20 @@ namespace SandboxBackend.Controllers
         [HttpGet("{eid}/{vid}")]
         public IActionResult GetVideo(string eid, string vid)
         {
-            string path = Path.Combine(env.ContentRootPath, $"Videos/{eid}/{userManager.GetUserId(User)}/{vid}E.MOV");
+            string path = Path.Combine(env.ContentRootPath, $"Videos/{eid}/{userManager.GetUserId(User)}/{vid}.MOV");
+            Stream stream = System.IO.File.OpenRead(path);
+
+            if (stream == null)
+                return NotFound(); // returns a NotFoundResult with Status404NotFound response.
+
+            return File(stream, "application/octet-stream", true); // returns a FileStreamResult
+        }
+
+        [HttpGet("{eid}/{tid}")]
+        public IActionResult GetThumbnail(string eid, string tid)
+        {
+            string path = Path.Combine(env.ContentRootPath, $"Videos/{eid}/{userManager.GetUserId(User)}/{tid}T.JPG");
+
             Stream stream = System.IO.File.OpenRead(path);
 
             if (stream == null)
